@@ -1,186 +1,151 @@
 ## Overview
 
 Overview
-
-The OpenTech Summit Bootstrap variant project incorporates custom Bootstrap JavaScript components tailored to fit the specific theme of the OpenTech Summit website. This ensures that the frontend framework is in harmony with the unique design and functionality requirements of the summit's web presence.
+OpenTechSummit.de is a web project designed to manage and display various aspects of the OpenTechSummit event. This project includes multiple JavaScript functionalities such as image optimization, dynamic DOM manipulations, and usage of third-party libraries for enhanced features.
 
 ##
 Overview
-
-The Open Tech Summit project is a web-based application designed to manage and display various resources for a tech summit event. It uses various JavaScript libraries and frameworks for frontend functionality and Gulp for task automation, such as image optimization.
+The Open Tech Summit Theme project is an implementation of the Bootstrap framework customized for the Open Tech Summit. This project combines various Bootstrap components to create a consistent UI framework, offering a range of UI elements such as buttons, modals, tooltips, and more.
 
 ##
 ## Features
 
 Features
-
-- Image optimization using Gulp and imagemin.
-- Integration of multiple JavaScript libraries such as Bootstrap, jQuery, and custom scripts for different functionalities.
-- Smooth scrolling, lightbox display, and countdown timers for enhanced user experience.
-- Mobile-responsive adjustments and compatibility.
-- Dynamic animations and effects using external plugins.
+- **Image Optimization**: Uses `gulp-imagemin` to optimize images.
+- **Sticky Navigation**: Dynamic navigation bar that sticks to the top on scroll.
+- **Smooth Scrolling**: Smooth scrolling effects for internal links.
+- **Responsive Image Handling**: Adjusts viewport settings for better handling of images on different devices.
+- **Integration with Bootstrap**: Utilizes multiple Bootstrap components for UI enhancements.
+- **Lightbox Viewing**: Lightbox functionality for image galleries.
+- **FlexSlider Integration**: Provides a flexible slider for dynamic content showcasing.
+- **Countdown Timer**: Countdown timer features using `jquery.countdown`.
+- **Placeholder Management**: Manages placeholders for input fields.
+- **Social Media Integration**: Fetches and displays tweets using `twitterfetcher`.
 
 ##
 Features
-
-- Integration of essential Bootstrap components such as Modals, Dropdowns, Carousels, and more.
-- Unified theme styling through the use of JavaScript imports.
-- Custom implementations and extensions of Bootstrap 3.1.0.
-- Modular JavaScript structure for easy maintenance and updates.
+- Transition animations
+- Alert messages
+- Button styling
+- Carousel for cycling through elements
+- Collapse functionality for accordion-style content display
+- Dropdown menus
+- Modal dialogs
+- Tooltips and popovers for additional context
+- Scrollspy to update navigation based on scroll position
+- Tabbed content display
+- Affix for pinning elements to the viewport during scrolling
 
 ##
 ## Installation Instructions
 
 Installation Instructions
 
-To get the project up and running on a local development environment, follow these steps:
+### Prerequisites
+- Node.js and npm installed on your system.
+- Gulp installed globally.
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/OpnTec/opentechsummit.de.git
-   ```
-2. **Navigate to the project directory**:
-   ```bash
-   cd opentechsummit.de
-   ```
-3. **Install dependencies**:
-   Ensure you have Node.js and npm installed. If not, download and install them from [Node.js official site](https://nodejs.org/).
+### Steps
+1. **Clone the Repository:**
+    ```bash
+    git clone https://github.com/loosiegoosey/opentechsummit.de.git
+    cd opentechsummit.de
+    ```
 
-   ```bash
-   npm install
-   ```
-4. **Set up and serve**:
-   Depending on your project setup, you might need to run specific scripts to build and serve the application. Check your `package.json` for available npm scripts.
+2. **Install Dependencies:**
+    ```bash
+    npm install
+    ```
 
-   ```bash
-   npm run build
-   npm start
-   ```
+3. **Run Gulp Tasks:**
+    ```bash
+    gulp
+    ```
 
 ##
 Installation Instructions
-
-To set up the project locally, follow these steps:
-
 1. **Clone the repository:**
-   ```sh
-   git clone https://github.com/OpnTec/opentechsummit.de.git
-   ```
+    ```bash
+    git clone https://github.com/loosiegoosey/opentechsummit.de.git
+    ```
 2. **Navigate to the project directory:**
-   ```sh
-   cd opentechsummit.de
-   ```
-3. **Install the necessary dependencies:**
-   This project uses `npm` to manage dependencies. Run the following command to install them:
-   ```sh
-   npm install
-   ```
-4. **Run Gulp tasks:**
-   The default gulp task optimizes images. Run the following command to start it:
-   ```sh
-   gulp
-   ```
+    ```bash
+    cd opentechsummit.de/variant/theme/js/bootstrap
+    ```
+3. **Ensure you have a proper environment:**
+    - Install Node.js and npm if they are not already installed. Instructions can be found [here](https://nodejs.org/).
+    - Install project dependencies (if any). This might typically involve running:
+      ```bash
+      npm install
+      ```
 
 ##
 ## Usage Examples
 
 Usage Examples
 
-Here are some examples of how to use and test the functionalities in this project:
+### Image Optimization
+To optimize images located in the `img/` directory, use the following Gulp task:
+```bash
+gulp images-opt
+```
 
-1. **Image Optimization:**
-   Ensure the `img` directory has images. Then, run:
-   ```sh
-   gulp images-opt
-   ```
+### Sticky Navigation
+Include the following in your main script to enable sticky navigation:
+```javascript
+$(window).scroll(function() {
+    if ($(window).scrollTop() > 1) {
+        $('nav').addClass('sticky-nav');
+    } else {
+        $('nav').removeClass('sticky-nav');
+    }
+});
+```
 
-2. **Check main JS file:**
-   Check the browser console to see the log message from `main.js`:
-   ```js
-   console.log('This would be the main JS file.');
-   ```
-
-3. **Bootstrap Utilities:**
-   Include various Bootstrap components as needed. For example, to use the Bootstrap modal:
-   ```html
-   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-     Launch demo modal
-   </button>
-   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-     <div class="modal-dialog" role="document">
-       <div class="modal-content">
-         <div class="modal-header">
-           <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-             <span aria-hidden="true">&times;</span>
-           </button>
-         </div>
-         <div class="modal-body">
-           ...
-         </div>
-         <div class="modal-footer">
-           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-           <button type="button" class="btn btn-primary">Save changes</button>
-         </div>
-       </div>
-     </div>
-   </div>
-   ```
+### Smooth Scrolling
+Enable smooth scrolling for anchor links:
+```javascript
+$('a').click(function() {
+    if ($(this).attr('href') === '#') {
+        return false;
+    }
+});
+```
 
 ##
 Usage Examples
+### Including the Bootstrap Mix in Your Project
+To include the Bootstrap mix in your project, import `bootstrap.mix.js` in your main JavaScript file:
 
-### Example 1: Adding a Carousel
-
-To add a carousel component to your HTML, you'll include the following markup:
-
-```html
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="item active">
-      <img src="img1.jpg" alt="First slide">
-    </div>
-    <div class="item">
-      <img src="img2.jpg" alt="Second slide">
-    </div>
-    <div class="item">
-      <img src="img3.jpg" alt="Third slide">
-    </div>
-  </div>
-  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-  </a>
-  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-  </a>
-</div>
+```js
+import './path/to/js/bootstrap/bootstrap.mix.js';
 ```
-Ensure the relevant JavaScript file, `carousel.js`, is included.
 
-### Example 2: Creating a Modal
-
-To implement a modal dialog, use the following code:
+### Basic Button Integration
+To create a button using the Bootstrap framework, add the following HTML:
 
 ```html
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Launch Modal</button>
+<button type="button" class="btn btn-primary">Primary Button</button>
+```
 
-<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+### Modals
+To create a modal dialog, use the following HTML structure:
+
+```html
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Modal title</h4>
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
       <div class="modal-body">
-        <p>One fine body…</p>
+        Modal body content here.
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
@@ -188,84 +153,79 @@ To implement a modal dialog, use the following code:
 </div>
 ```
 
+### Tooltips
+To use tooltips, add the `data-toggle="tooltip"` attribute to an element:
+
+```html
+<button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+  Hover to see tooltip
+</button>
+```
+
+Initialize tooltips with JavaScript:
+```js
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip();
+});
+```
+
 ##
 ## Code Summary
 
 Code Summary
+### Directory Structure and Key Files
+- **gulpfile.js**: Configuration for Gulp tasks, primarily handling image optimization using `gulp-imagemin`.
+- **javascripts/**
+  - **main.js**: Placeholder for main JavaScript functionality.
+  - **scale.fix.js**: Scripts to adjust viewport settings dynamically based on device.
+- **js/**
+  - **bootstrap/**: Contains all Bootstrap JavaScript components for UI functionalities.
+  - **flexslider.min.js**: Plugin for creating responsive sliders.
+  - **jquery.countdown.min.js**: Countdown timer plugin.
+  - **jquery.plugin.min.js**: Base class for jQuery plugins.
+  - **lightbox.min.js**: Lightbox functionality for image galleries.
+  - **placeholders.min.js**: Handles placeholders in input fields.
+  - **scripts.js**: Main script for dynamic DOM manipulations and functionalities.
+  - **skrollr.min.js**: Scripts for parallax scrolling.
+  - **smooth-scroll.min.js**: Smooth scrolling effects for anchor links.
+  - **spectragram.min.js**: Instagram API integration.
+  - **twitterfetcher.min.js**: Twitter API integration for fetching and displaying tweets.
 
-The codebase is structured to enhance modularity and maintainability, with the following main files and their purposes:
-
-- **bootstrap.mix.js**: Imports various Bootstrap JavaScript components such as transition, alert, button, carousel, collapse, dropdown, modal, tooltip, popover, scrollspy, tab, and affix.
-- **button.js**: Manages button related functionalities.
-- **carousel.js**: Handles carousel component behaviors.
-- **collapse.js**: Manages component collapsing (e.g., accordions).
-- **dropdown.js**: Handles dropdown menu interactions.
-- **modal.js**: Manages modal dialog interactions.
-- **popover.js**: Handles popover UI component.
-- **scrollspy.js**: Manages scrollspy behavior for dynamic navigation highlights.
-- **tab.js**: Manages tab-based navigation.
-- **tooltip.js**: Handles tooltip displays.
-- **transition.js**: Manages CSS transitions.
+### Special Mention
+- **variant/**: Contains alternative or variant scripts and plugins for the project.
 
 ##
 Code Summary
+The project code is structured under the `variant/theme/js/bootstrap/` directory, with each Bootstrap component being defined in its own Javascript file:
+- **transition.js:** Handles CSS transitions.
+- **alert.js:** Manages alert messages.
+- **button.js:** Defines button behaviors.
+- **carousel.js:** Implements the carousel component.
+- **collapse.js:** Manages collapsible sections.
+- **dropdown.js:** Handles dropdown menus.
+- **modal.js:** Creates and controls modal dialogs.
+- **tooltip.js:** Adds tooltip functionality.
+- **popover.js:** Enhances tooltips to create popovers.
+- **scrollspy.js:** Updates navigation based on scroll position.
+- **tab.js:** Manages tabbed navigation.
+- **affix.js:** Pins elements to the viewport on scroll.
 
-The project's codebase is structured into several key directories and files:
-
-- **`gulpfile.js`**: Contains tasks for image optimization using gulp and imagemin.
-- **`js`**: Includes various JavaScript files and libraries:
-  - **main.js**: Main JavaScript file with basic functionalities.
-  - **scale.fix.js**: Custom code for fixing viewport issues on mobile devices.
-  - **bootstrap.js** and **other bootstrap files**: Bootstrap components for various UI elements.
-  - **flexslider.min.js, jquery.countdown.min.js, lightbox.min.js, etc.**: External JavaScript libraries for different functionalities like sliders, countdown timers, and lightbox effects.
-- **`variant`**: Contains theme-specific JavaScript files and initializations.
-
-##
-## Contributing Guidelines
-
-Contributing Guidelines
-
-We welcome contributions to enhance the project. Here are the steps to get started:
-
-1. **Fork the repository** on GitHub.
-2. **Clone your fork** locally:
-   ```bash
-   git clone https://github.com/<your-username>/opentechsummit.de.git
-   ```
-3. **Create a new branch** for your changes:
-   ```bash
-   git checkout -b my-feature-branch
-   ```
-4. **Make your changes** and commit them:
-   ```bash
-   git commit -m "Description of my changes"
-   ```
-5. **Push to your fork**:
-   ```bash
-   git push origin my-feature-branch
-   ```
-6. **Create a Pull Request** on GitHub.
-
-##
-Contributing Guidelines
-
-We welcome contributions to the project! To contribute:
-
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature-branch`).
-3. Make your changes.
-4. Commit your changes (`git commit -am 'Add new feature'`).
-5. Push to the branch (`git push origin feature-branch`).
-6. Create a new Pull Request.
-
-Please ensure your code adheres to the existing code style and includes appropriate test coverage for new features.
+The main entry point, `bootstrap.mix.js`, imports all of these individual components to build a cohesive Bootstrap distribution.
 
 ##
 ## License
 
 License
+This project is licensed under the MIT License. 
 
-This project is licensed under the MIT License. See the [LICENSE](https://github.com/OpnTec/opentechsummit.de/blob/master/LICENSE) file for details.
+```plaintext
+MIT License
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+...
+```
+For detailed information, please refer to the `LICENSE` file in the root of the repository.
 License
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/twbs/bootstrap/blob/master/LICENSE) file for details. 
 
-This project is licensed under the MIT License. See the [LICENSE](https://github.com/twbs/bootstrap/blob/master/LICENSE) file for details.
+Feel free to fork, modify, and use this project as needed, while providing appropriate credit to the original authors.
