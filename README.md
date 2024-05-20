@@ -83,79 +83,6 @@ To set up the project locally, follow these steps:
 Usage Examples
 Here are some examples of how the customized Bootstrap JavaScript components can be used in your HTML files:
 
-### Modals
-```html
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-  Launch demo modal
-</button>
-
-<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>Modal body text goes here.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-```
-
-### Tooltips
-```html
-<button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
-  Tooltip on top
-</button>
-
-<script>
-$(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-})
-</script>
-```
-
-### Buttons
-```html
-<button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false">
-  Single toggle
-</button>
-```
-
-After following the installation instructions, you can start the development server or deploy the project as needed. Below are some usage examples to get you started.
-
-### Running Gulp Tasks
-To optimize images, you can execute the default gulp task:
-```sh
-gulp
-```
-
-### JavaScript Interaction
-For integrating custom JavaScript, you can modify `main.js` or add new scripts as needed.
-
-#### Example
-Here's how you might initialize a sticky navigation:
-```javascript
-$(document).ready(function() {
-    $(window).scroll(function() {
-        if ($(window).scrollTop() > 1) {
-            $('nav').addClass('sticky-nav');
-        } else {
-            $('nav').removeClass('sticky-nav');
-        }
-    });
-});
-```
-
-##
 ## Code Summary
 
 Code Summary
@@ -192,20 +119,6 @@ opentechsummit.de/
 │   └── theme/
 └── ...
 ```
-
-The project heavily customizes various Bootstrap JavaScript components. Here's a brief description of the key files:
-
-- **bootstrap.mix.js**: This consolidates various Bootstrap JavaScript components by importing them.
-- **button.js**: Handles the functionality related to button interactions.
-- **carousel.js**: Provides the logic for carousel components.
-- **collapse.js**: Manages collapsible elements like accordions.
-- **dropdown.js**: Controls dropdown menu behavior.
-- **modal.js**: Implements modal (popup) dialog functionality.
-- **popover.js**: Adds popover elements for more descriptive tooltips.
-- **scrollspy.js**: Watch for scroll events and manage spy elements.
-- **tab.js**: Tab switching functionality.
-- **tooltip.js**: Basic tooltip logic derived from jQuery.tipsy.
-- **transition.js**: Provides support for CSS transition effects.
 
 ##
 ## License
